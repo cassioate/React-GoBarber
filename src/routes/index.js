@@ -15,6 +15,10 @@ export default function Routes() {
          <Route path="/register" component={SignUp}></Route>
          <Route path="/dashboard" component={Dashboard} isPrivate></Route>
          <Route path="/profile" component={Profile} isPrivate></Route>
+
+         {/* Como o path é "/" sem o EXACT, tudo que nao for exatamente o caminho "/", ou outra rota ja contemplada acima
+           (Pois caso exista uma rota acima, ele não chegará até aqui), ele irá redirecionar para erro */}
+         <Route path="/" component={() => <h1>404</h1>}></Route>
       </Switch>
    )
 }

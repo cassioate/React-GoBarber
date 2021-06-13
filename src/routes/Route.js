@@ -9,10 +9,7 @@ export default function RouteWrapper({
    ...rest
 }) {
    const signed = false
-   console.log(isPrivate)
-   console.log(signed)
    if (!signed && isPrivate) {
-      console.log('ENTREI')
       /** igual ao <Redirect/>, utilizado aqui apenas para mostrar a utilização dos dois no mesmo arquivo */
       history.push('/')
    }
