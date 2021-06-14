@@ -6,8 +6,9 @@ import * as Yup from 'yup'
 import logo from '../../assets/logo.svg'
 
 const schema = Yup.object().shape({
+   nome: Yup.string().required('Nome é obrigatorio'),
    email: Yup.string().email('Insira um email valido.').required('Email é obrigatorio.'),
-   password: Yup.string().required('Senha é obrigatoria.'),
+   password: Yup.string().min(6, 'No minimo 6 caracteres').required('Senha é obrigatoria.'),
 })
 
 function SignUp() {
