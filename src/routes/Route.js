@@ -5,8 +5,14 @@ import history from '../services/history'
 
 import AuthLayout from '../pages/_layouts/auth'
 import DefaultLayout from '../pages/_layouts/default'
-export default function RouteWrapper({ component: Component, isPrivate, ...rest }) {
-   const signed = false
+
+import store from '../store'
+export default function RouteWrapper({
+   component: Component,
+   isPrivate,
+   ...rest
+}) {
+   const { signed } = store.getState().auth
 
    if (!signed && isPrivate) {
       /** igual ao <Redirect/>, utilizado aqui apenas para mostrar a utilização dos dois no mesmo arquivo */
@@ -33,7 +39,8 @@ export default function RouteWrapper({ component: Component, isPrivate, ...rest 
 
 RouteWrapper.propTypes = {
    isPrivate: PropTypes.bool,
-   component: PropTypes.oneOfType([PropTypes.element, PropTypes.func]).isRequired,
+   component: PropTypes.oneOfType([PropTypes.element, PropTypes.func])
+      .isRequired,
 }
 
 RouteWrapper.defaultProps = {

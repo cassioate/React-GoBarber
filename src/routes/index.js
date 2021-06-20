@@ -13,8 +13,16 @@ export default function Routes() {
       <Switch>
          <RouteWrapper path="/" exact component={SignIn}></RouteWrapper>
          <RouteWrapper path="/register" component={SignUp}></RouteWrapper>
-         <RouteWrapper path="/dashboard" component={Dashboard} isPrivate></RouteWrapper>
-         <RouteWrapper path="/profile" component={Profile} isPrivate></RouteWrapper>
+         <RouteWrapper
+            path="/dashboard"
+            component={Dashboard}
+            isPrivate
+         ></RouteWrapper>
+         <RouteWrapper
+            path="/profile"
+            component={Profile}
+            isPrivate
+         ></RouteWrapper>
 
          {/* Como o path é "/" sem o EXACT, tudo que nao for exatamente o caminho "/", ou outra rota ja contemplada acima
            (Pois caso exista uma rota acima, ele não chegará até aqui), ele irá redirecionar para erro */}
